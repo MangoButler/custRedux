@@ -3,9 +3,9 @@ import Card from "../UI/Card";
 import "./ProductItem.css";
 import { useStore } from "../../hooks-store/store";
 
-const ProductItem = (props) => {
-  console.log('rendering');
-  const dispatch = useStore()[1];
+const ProductItem = React.memo((props) => {
+  console.log("rendering");
+  const dispatch = useStore(false)[1];
   const isLogin = useStore()[0].auth;
 
   const toggleFavHandler = () => {
@@ -30,6 +30,6 @@ const ProductItem = (props) => {
       </div>
     </Card>
   );
-};
+});
 
 export default ProductItem;
